@@ -3,13 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
-<<<<<<< HEAD
 const authRoute = require('./auth/routes')()
-=======
-
-const authRoute = require('./auth/routes')()
-
->>>>>>> 1321adb7c0090df54b43f3af425ee8a0a786047b
 dotenv.config()
 
 const app = express();
