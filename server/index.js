@@ -4,6 +4,8 @@ const cors = require('cors')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 
+const authRoute = require('./auth/routes')()
+
 dotenv.config()
 
 const app = express();
@@ -13,10 +15,12 @@ app.use(bodyParser.urlencoded({limit:'30mb', extended:true}))
 
 app.use(cors({origin:'*'}))
 
-mongoose.connect(process.env.MONGO_URI,{useNewUrlParser:true, useUnifiedTopology: true}).then(()=>{
+mongoose.connect('mongodb+srv://vsarraf15:pass@cluster0.wweyo3v.mongodb.net/',{useNewUrlParser:true, useUnifiedTopology: true}).then(()=>{
     console.log("MongoDB connected")
 })
 // aryaman aagya
+
+app.use('/auth', authRoute)
 
 const PORT = process.env.PORT || 8080
 

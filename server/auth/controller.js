@@ -7,6 +7,7 @@ const controller = () => {
     register: async (req, res) => {
       try {
         const data = req.body;
+        console.log(data)
         data.password = hashSync(data.password, 10);
         const user = await User.create(data);
         const token = jwt.sign(
